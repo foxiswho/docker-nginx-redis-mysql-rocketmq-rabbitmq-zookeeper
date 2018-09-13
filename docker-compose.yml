@@ -126,17 +126,15 @@ services:
         aliases:
         - zoo3
   #zookeeper 客户端
-  zookeeperCli:
-    image: zookeeper:3.4
-    restart: always
-    hostname: zookeeperCli
-    ports:
-      - 2183:2181
-    command: zkCli.sh -server zookeeper
-    networks:
-      nrmrr:
-        aliases:
-        - zookeeperCli
+#  zookeeperCli:
+#    image: zookeeper:3.4
+#    restart: always
+#    hostname: zookeeperCli
+#    command: zkCli.sh -server zookeeper
+#    networks:
+#      nrmrr:
+#        aliases:
+#        - zookeeperCli
 networks:
   nrmrr:
     name: nrmrr
