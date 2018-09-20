@@ -200,6 +200,26 @@ services:
           - consulManger
       depends_on:
       - consulServer1
+
+#  fabio:
+#    image: magiconair/fabio
+##    container_name: fabio
+#    hostname: fabio
+#    ports:
+#      - "9998:9998"
+#      - "9999:9999"
+#    volumes:
+#      - ./data/fabio/fabio.properties:/etc/fabio/fabio.properties
+#    networks:
+#      nrmrr:
+#        aliases:
+#        - fabio
+#      nrmrr-c:
+#        ipv4_address: 10.2.1.110
+#        aliases:
+#        - fabio
+#      depends_on:
+#      - consulServer1
 networks:
   nrmrr:
     name: nrmrr
