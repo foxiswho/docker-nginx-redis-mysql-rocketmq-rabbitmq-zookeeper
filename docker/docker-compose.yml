@@ -88,7 +88,7 @@ services:
 #zookeeper
   zoo1:
     image: zookeeper:3.4
-    restart: always
+    #restart: always
     hostname: zoo1
     ports:
     - 2181:2181
@@ -101,7 +101,7 @@ services:
         - zoo1
   zoo2:
     image: zookeeper:3.4
-    restart: always
+    #restart: always
     hostname: zoo2
     ports:
     - 2182:2181
@@ -114,7 +114,7 @@ services:
         - zoo2
   zoo3:
     image: zookeeper:3.4
-    restart: always
+    #restart: always
     hostname: zoo3
     ports:
     - 2183:2181
@@ -220,6 +220,52 @@ services:
 #        - fabio
 #      depends_on:
 #      - consulServer1
+  apollo:
+    image: foxiswho/docker-apollo:latest
+    container_name: apollo
+    hostname: apollo
+    ports:
+    - "8070:8070"
+    - "8080:8080"
+    - "8090:8090"
+    - "8081:8081"
+    - "8091:8091"
+    - "8082:8082"
+    - "8092:8092"
+    - "8083:8083"
+    - "8093:8093"
+    volumes:
+    - ./data/apollo:/opt
+    environment:
+      # 开启Portal,默认端口: 8070
+      PORTAL_DB: jdbc:mysql://mysql:3306/ApolloPortalDB?characterEncoding=utf8
+      PORTAL_DB_USER: root
+      PORTAL_DB_PWD: root
+
+      # 开启dev环境, 默认端口: config 8080, admin 8090
+      DEV_DB: jdbc:mysql://mysql:3306/ApolloConfigDBDev?characterEncoding=utf8
+      DEV_DB_USER: root
+      DEV_DB_PWD: root
+
+      # 开启fat环境, 默认端口: config 8081, admin 8091
+      #FAT_DB: jdbc:mysql://mysql:3306/ApolloConfigDBFat?characterEncoding=utf8
+      #FAT_DB_USER: root
+      #FAT_DB_PWD: toor
+      # 可修改端口.
+      #FAT_CONFIG_PORT: 8050
+      #FAT_ADMIN_PORT: 8051
+
+      # 指定远程uat地址
+      #UAT_URL: http://192.168.1.2:8080
+
+      # 指定远程pro地址
+      #PRO_URL: http://www.baidu.com:8080
+    networks:
+      nrmrr:
+        aliases:
+        - apollo
+    depends_on:
+        - mysql
 networks:
   nrmrr:
     name: nrmrr
