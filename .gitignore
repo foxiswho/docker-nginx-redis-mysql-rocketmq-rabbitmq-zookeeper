@@ -2,3 +2,5 @@
 .DS_Store
 *.rej
 *.log
+*.current
+*.json
