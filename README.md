@@ -1,6 +1,8 @@
 # docker-nginx-redis-mysql-rocketmq-rabbitmq-zookeeper
 docker-nginx-redis-mysql-rocketmq-rabbitmq-zookeeper
 
+# 环境说明
+系统 MAC 系统
 
 ```shell
 cd docker
@@ -28,4 +30,9 @@ https://github.com/ctripcorp/apollo
 
 https://github.com/ctripcorp/apollo/tree/master/scripts/sql
 
-数据库库指导  https://github.com/ctripcorp/apollo/wiki/%E5%88%86%E5%B8%83%E5%BC%8F%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97#21-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93
+数据库库指导  https://github.com/ctripcorp/apollo/wiki/分布式部署指南#21-创建数据库
+
+
+
+
+
